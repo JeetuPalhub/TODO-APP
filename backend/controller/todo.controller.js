@@ -14,3 +14,35 @@ export const createTodo = async(req, res) => {
         res.status(400).json({ message: "Error occuring in todo creation"})
     }
 }
+
+export const getTodos=async(req,res)=>{
+    try {
+        const todos=await Todo.find()
+        res.json(201).json({message: "Todo Fetched Successfully", todos})
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({message: "Error occuring in todo fetching"})
+    }
+}
+
+export const updateTodo=async(req,res)=>{
+    try {
+        const todo=await Todo.findByIdAndUpdate(req.params.id, req.body,{
+            new:true,
+        })
+        res.status(201).json({message: "Todo Updated Successfully", todo})
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({message: "Error occuring in todo updating"})
+    }
+}
+
+export const deleteTodo=async(req,res)=>{
+    try {
+        const todo=await Todo.findByIdAndDelete(req.params.id)
+        res.status(201).json({message: "Todo Deleted Successfully", todo})
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({message: "Error occuring in todo deletion"})
+    }
+}
