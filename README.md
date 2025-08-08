@@ -1,4 +1,4 @@
-📝 Full Stack To-Do App
+no📝 Full Stack To-Do App
 A full-featured To-Do List application built with a modern full-stack architecture. Users can create, update, and delete tasks with real-time updates and persistent data storage.
 
 📦 Tech Stack
@@ -19,11 +19,7 @@ RESTful API
 Zod for validation
 JWT Auth for user login/signup
 
-
-
-
-
-Vercel / Netlify / Heroku for deployment
+ Heroku for deployment
 
 
 
