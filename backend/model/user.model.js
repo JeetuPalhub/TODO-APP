@@ -1,21 +1,25 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose" // Helps us talk to the MongoDB database
 
-const userSchema=new mongoose.Schema({
+// Make a blueprint (schema) for how a user should look
+const userSchema = new mongoose.Schema({
     username: {
-        type: String,
-        required: true
+        type: String, // Username is text
+        required: true // We must have it
     },
     email: {
-        type: String,
-        required: true,
-        unique: true
+        type: String, // Email is text
+        required: true, // We must have it
+        unique: true // No two users can have the same email
     },
     password: {
-        type: String,
-        required: true,
-        select: false
+        type: String, // Password is text
+        required: true, // We must have it
+        select: false // Hide it when we get user info (for safety)
     }
 })
 
-const User = mongoose.model("User",userSchema)
+// Make a "User" collection in the database using the blueprint
+const User = mongoose.model("User", userSchema)
+
+// Share User so other files can use it
 export default User
